@@ -1,6 +1,9 @@
 from django.db import models
 from django.conf import settings
 from autoslug import AutoSlugField
+import os
+
+endpoint = os.environ.get("ENDPOINT")
 
 
 class BlogPost(models.Model):
@@ -15,3 +18,11 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return f"blogs/{self.pk}/"
+
+    @property
+    def endpoint(self):
+        absolute_url = self.get_absolute_url()
+        return f"{endpoint}/{absolute_url}"
