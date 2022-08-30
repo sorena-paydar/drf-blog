@@ -20,4 +20,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/", include("auth.urls")),
     path("blogs/", include("blogs.urls")),
+    path("", include("rest_framework.urls")),
 ]
