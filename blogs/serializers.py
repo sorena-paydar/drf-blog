@@ -9,7 +9,7 @@ class BlogPostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BlogPost
-        fields = ["title", "body", "date_updated", "author", "slug", "username"]
+        fields = ["title", "body", "date_updated", "author", "slug", "username", "pk"]
 
     def get_username(self, blog_post):
         return blog_post.author.username
